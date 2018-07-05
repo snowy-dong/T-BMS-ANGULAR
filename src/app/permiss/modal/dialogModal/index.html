@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">添加权限</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">权限名称：</label>
+      <input type="email" class="form-control" id="name" placeholder="请输入名称" [(ngModel)]="item.permiss_name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">权限Code：</label>
+      <input type="email" class="form-control" id="code" placeholder="请输入CODE" [(ngModel)]="item.permiss_code" name="code">
+    </div>
+    <button type="btn" class="btn btn-default" (click)="saveModal(item)">Submit</button>
+  </form>
+</div>

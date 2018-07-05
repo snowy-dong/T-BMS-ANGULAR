@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="header" *ngIf="this.isLogin">
+    <a class="logout fr" (click) = 'logout()' >退出登录</a>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="sidebar" *ngIf="this.isLogin">
+      <nav>
+        <a routerLink="/Permiss"  routerLinkActive="active">权限管理</a>
+        <a routerLink="/Role"  routerLinkActive="active">角色管理</a>
+        <a routerLink="/Account"  routerLinkActive="active">账户管理</a>
+        <a routerLink="/Category"  routerLinkActive="active">分类管理</a>
+        <a routerLink="/Goods"  routerLinkActive="active">商品管理</a>
+        <a routerLink="/Active"  routerLinkActive="active">活动管理</a>
+        <a routerLink="/Order"  routerLinkActive="active">订单管理</a>
+        <a routerLink="/Statistics"  routerLinkActive="active">报表管理</a>
+      </nav>
+    </div>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

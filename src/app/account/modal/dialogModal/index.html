@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">添加帐号</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <form name="from" #ngForm="ngForm">
+      <div class="form-group">
+        <label for="name">账户名称：</label>
+        <input type="text" class="form-control" id="name" placeholder="请输入名称" [(ngModel)]="params.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">性别：</label>
+        <select class="form-control" name="gender"  id="gender" [(ngModel)]="params.gender"  required>
+          <option value="male">男</option>
+          <option value="female">女</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cellphone">手机号：</label>
+        <input type="text" class="form-control" id="cellphone" placeholder="请输入手机号" [(ngModel)]="params.cellphone" name="cellphone" required>
+      </div>
+      <div class="form-group">
+        <label for="email">邮箱：</label>
+        <input type="email" class="form-control" id="email" placeholder="请输入邮箱" [(ngModel)]="params.email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="joinDate">加入日期：</label>
+        <input type="text" class="form-control" id="joinDate" placeholder="请输入日期"  bsDatepicker  [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [(ngModel)]="params.joinDate" name="joinDate" required>
+      </div>
+      <div class="form-group">
+        <label for="code">选择权限：</label>
+        <ngx-select [items]="roleList"  [multiple]='true' [(ngModel)]="params.role" name="code" optionValueField ="id" >
+          <ng-template ngx-select-option-selected let-option let-text="text">
+            {{option.data.role_name}}
+          </ng-template>
+
+          <ng-template ngx-select-option let-option let-text="text">
+              {{option.data.role_name}}
+          </ng-template>
+
+          <ng-template ngx-select-option-not-found>
+              Nothing found
+          </ng-template>
+        </ngx-select>
+      </div>
+      <button [disabled]="!ngForm.form.valid" type="btn" class="btn btn-default" (click)="saveModal(params)">Submit</button>
+    </form>
+  </div>

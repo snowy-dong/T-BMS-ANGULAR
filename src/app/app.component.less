@@ -1,0 +1,49 @@
+.header{
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #5189e3;
+}
+.sidebar{
+  position: fixed;
+  width: 200px;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  overflow: hidden;
+  transition: all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  background-color: #eeeeee;
+  nav >a{
+    display: block;
+    columns: #666666;
+    height: 36px;
+    line-height: 28px;
+    padding: 4px 14px;
+    text-decoration: none;
+  }
+}
+.container-fluid{
+  height: 100%;
+  &>.row{
+   height: 100%;
+  }
+}
+
+.main{
+position: relative;
+width:100%;
+height: 100%;
+padding-left: 200px;
+}
+
+.logout{
+display: block;
+margin: 19px;
+padding: 6px 8px;
+color: #fff;
+}

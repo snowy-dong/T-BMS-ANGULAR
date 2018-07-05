@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">添加角色</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">角色名称：</label>
+      <input type="email" class="form-control" id="name" placeholder="请输入名称" [(ngModel)]="params.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">角色CODE：</label>
+      <input type="email" class="form-control" id="code" placeholder="请输入CODE" [(ngModel)]="params.code" name="code">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">选择权限：</label>
+      <ngx-select [items]="permissList"  [multiple]='true' [(ngModel)]="params.permiss" name="permiss" optionValueField ="id">
+        <ng-template ngx-select-option-selected let-option let-text="text">
+            {{option.data.permiss_name}}
+        </ng-template>
+
+        <ng-template ngx-select-option let-option let-text="text">
+            {{option.data.permiss_name}}
+        </ng-template>
+
+        <ng-template ngx-select-option-not-found>
+            Nothing found
+        </ng-template>
+      </ngx-select>
+    </div>
+    <button type="btn" class="btn btn-default" (click)="saveModal(params)">Submit</button>
+  </form>
+</div>
